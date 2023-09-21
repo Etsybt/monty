@@ -1,5 +1,12 @@
 #include "monty.h"
-
+/**
+  * operate - the opcodes
+  * @line: line input
+  * @node: first node
+  * @line_number: number of line
+  * @file: file
+  * Return: void
+  */
 int operate(char *line, stack_t **node, unsigned int line_number, FILE *file)
 {
 	instruction_t opst[] = {
@@ -7,12 +14,12 @@ int operate(char *line, stack_t **node, unsigned int line_number, FILE *file)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
-		{"add", add},
 		{"swap", swap},
+		{"add", add},
 		{"nop", nop},
 		{NULL, NULL}
 	};
-	unsigned int i;
+	unsigned int i = 0;
 	char *op;
 
 	op = strtok(line, " \n\t");
@@ -37,4 +44,4 @@ int operate(char *line, stack_t **node, unsigned int line_number, FILE *file)
 		exit(EXIT_FAILURE);
 	}
 	return (1);
-}													
+}

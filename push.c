@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+  * push - pushes an element to the stack.
+  * @node: first node
+  * @value: counts lines
+  * Return: void
+  */
 void push(stack_t **node, unsigned int value)
 {
 	int x, y = 0, bit = 0;
@@ -13,11 +18,11 @@ void push(stack_t **node, unsigned int value)
 			if (global.argument[y] > 57 || global.argument[y] < 48)
 				bit = 1;
 		}
-		if (bit == 1) 
+		if (bit == 1)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", value);
 			fclose(global.file);
-			free(global.argument);
+			free(global.line);
 			free_head(*node);
 			exit(EXIT_FAILURE);
 		}
@@ -33,7 +38,7 @@ void push(stack_t **node, unsigned int value)
 	x = atoi(global.argument);
 
 	if (global.m == 0)
-		addnode(node, x);
+		stacking(node, x);
 	else
-		addqueue(node, x);
+		rev_stacking(node, x);
 }

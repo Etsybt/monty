@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+  * pop - removes the top element of the stack.
+  * @node: first node
+  * @value: counts lines
+  * Return: void
+  */
 void pop(stack_t **node, unsigned int value)
 {
 	stack_t *head;

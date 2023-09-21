@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+  * swap - swaps the top two elements of the stack.
+  * @node: first node
+  * @value: counts lines
+  * Return: void
+  */
 void swap(stack_t **node, unsigned int value)
 {
 	stack_t *head;

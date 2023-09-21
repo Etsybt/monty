@@ -41,6 +41,14 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+  * struct global_data_s - struct for the global var
+  * @argument: args
+  * @file: file to be executed
+  * @line: line input
+  * @m: int
+  * Description: global var
+  */
 
 typedef struct global_data_s
 {
@@ -52,14 +60,8 @@ typedef struct global_data_s
 
 extern global_data_t global;
 
-int read_line(FILE *file, char **line, size_t *len);
 
-ssize_t getline(char **lineptr, size_t *n, FILE *stream);
-char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
-ssize_t getstdin(char **lineptr, int file);
-char  *clean_line(char *line);
-
-void free_head(stack_t *head);
+void free_head(stack_t *node);
 int operate(char *line, stack_t **node, unsigned int line_number, FILE *file);
 
 void push(stack_t **node, unsigned int value);
@@ -70,9 +72,9 @@ void swap(stack_t **node, unsigned int value);
 void add(stack_t **node, unsigned int value);
 void nop(stack_t **node, unsigned int value);
 
-void addnode(stack_t **node, int n);
-void addqueue(stack_t **node, int n);
-void f_queue(stack_t **node, unsigned int line_number);
-void f_head(stack_t **node, unsigned int value);
+void stacking(stack_t **node, int n);
+void rev_stacking(stack_t **node, int n);
+void last(stack_t **node, unsigned int line_number);
+void frees_head(stack_t **node, unsigned int value);
 
 #endif
