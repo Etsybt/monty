@@ -1,6 +1,5 @@
-#define MONTY_H
 #ifndef MONTY_H
-
+#define MONTY_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,7 +44,7 @@ typedef struct instruction_s
 
 typedef struct global_data_s
 {
-	char *argument;
+	char **argument;
 }global_data_t;
 
 global_data_t global;

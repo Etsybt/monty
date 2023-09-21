@@ -2,9 +2,11 @@
 
 void pall(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
+	stack_t *current;
 
-	stack_t *current = *stack;
+	current = *stack;
+
+	(void)line_number;
 
 	if (current == '\0')
 		return;
