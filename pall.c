@@ -1,19 +1,19 @@
 #include "monty.h"
 
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **node, unsigned int value)
 {
 	stack_t *current;
 
-	current = *stack;
+	current = *node;
 
-	(void)line_number;
+	(void)value;
 
 	if (current == '\0')
 		return;
 
 	while (current != '\0')
 	{
-		printf("%i\n", current->n);
+		printf("%d\n", current->n);
 		current = current->next;
 	}
 }

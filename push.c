@@ -1,34 +1,39 @@
 #include "monty.h"
 
-void push(stack_t **stack, unsigned int line_number)
+void push(stack_t **node, unsigned int value)
 {
-	stack_t *new_node, *sst;
+	int x, y = 0, bit = 0;
 
-	if (global.argument[1] == NULL || check_num(global.argument[1]) == -1) 
+	if (global.argument)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		release(NULL, NULL, 'r');
-		free_dlistint(*stack);
-		free(global.argument);
+		if (global.argument[0] == '-')
+			y++;
+		for (; global.argument[y] != '\0'; y++)
+		{
+			if (global.argument[y] > 57 || global.argument[y] < 48)
+				bit = 1;
+		}
+		if (bit == 1) 
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", value);
+			fclose(global.file);
+			free(global.argument);
+			free_head(*node);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", value);
+		fclose(global.file);
+		free(global.line);
+		free_head(*node);
 		exit(EXIT_FAILURE);
 	}
-	sst = *stack;
-	new_node = malloc(sizeof(stack_t));
+	x = atoi(global.argument);
 
-	 if (!new_node)
-	 {
-		 fprintf(stderr, "Error: malloc failed\n");
-		 release(NULL, NULL, 'r');
-		 free_dlistint(*stack);
-		 free(global.argument);
-		 exit(EXIT_FAILURE);
-	 }
-	 new_node->next = '\0';
-	 new_node->n = atoi(global.argument[1]);
-	 new_node->prev = '\0';
-	 *stack = new_node;
-	 new_node->next = sst;
-
-	  if (sst)
-		  (sst)->prev = new_node;
+	if (global.m == 0)
+		addnode(node, x);
+	else
+		addqueue(node, x);
 }

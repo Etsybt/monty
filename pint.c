@@ -1,14 +1,14 @@
 #include "monty.h"
 
-void pint(stack_t **stack, unsigned int line_number)
+void pint(stack_t **node, unsigned int value)
 {
-	if (*stack == '\0')
+	if (*node == '\0')
 	{
-		fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
-		release(NULL, NULL, 'r');
-		free_dlistint(*stack);
+		fprintf(stderr, "L%i: can't pint, stack empty\n", value);
+		fclose(global.file);
 		free(global.argument);
+		free_head(*node);
 		exit(EXIT_FAILURE);
 	}
-	printf("%i\n", stack[0]->n);
+	printf("%d\n", (*node)->n);
 }

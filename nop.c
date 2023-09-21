@@ -1,7 +1,7 @@
 #include "monty.h"
 
-void nop(stack_t **stack, unsigned int line_number)
+void nop(stack_t **node, unsigned int value)
 {
-	(void)stack;
-	(void)line_number;
+	(void)node;
+	(void)value;
 }
